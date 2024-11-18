@@ -1,12 +1,25 @@
-import SwitchColor from "./Component/SwitchColor"
+import { Grid, GridItem, Show } from "@chakra-ui/react"
 
 function App() {
-
-  return (
-    <div>
-      <SwitchColor/>
-    </div>
-  )
+  return <Grid templateAreas={
+    {
+      base: `"nav" "main"`,
+      md: `"nav nav" "aside main"`
+    }
+  }>
+    <GridItem area='nav' bg='coral'>
+      Nav
+    </GridItem>
+    <Show above='md'>
+      <GridItem area='asbide' bg='red'>
+        Aside
+      </GridItem>
+    </Show>
+    
+    <GridItem area='main' bg='pink'>
+      Main
+    </GridItem>
+  </Grid>
 }
 
 export default App
