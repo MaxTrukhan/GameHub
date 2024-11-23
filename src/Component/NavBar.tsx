@@ -4,6 +4,7 @@ import logo from '../assets/logo.webp'
 import SwitchColor from './SwitchColor'
 
 function NavBar() {
+  
   return (
     <div>
       <HStack  p={30} justifyContent={'space-between'} boxSize={40} w={'100%'}>
