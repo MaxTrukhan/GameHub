@@ -13,9 +13,10 @@ export interface PlatformIcon {
 export interface gameProp {
     id: number ;
     name: string;
-    background_image: string
-    rating: number
-    parent_platforms: {platform: PlatformIcon}[]
+    background_image: string;
+    rating: number;
+    metacritic: number;
+    parent_platforms: {platform: PlatformIcon}[];
   }
   
   interface resultProp {

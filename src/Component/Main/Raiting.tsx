@@ -1,32 +1,26 @@
-import { HStack, Icon } from "@chakra-ui/react";
-import { FaRegStar, FaStar } from "react-icons/fa";
-import { gameProp } from "../../hooks/useGame";
-import { IconType } from "react-icons";
+import { Badge} from "@chakra-ui/react";
 
 interface Prop {
-    ShowRating: gameProp
+    ShowRating: number
 }
 
 // Ensure your rating values are mapped correctly (as integers).
-const stars: { [key: string]: IconType[] } = {
-  1: [FaStar, FaRegStar, FaRegStar, FaRegStar, FaRegStar],
-  2: [FaStar, FaStar, FaRegStar, FaRegStar, FaRegStar],
-  3: [FaStar, FaStar, FaStar, FaRegStar, FaRegStar],
-  4: [FaStar, FaStar, FaStar, FaStar, FaRegStar],
-  5: [FaStar, FaStar, FaStar, FaStar, FaStar],
-};
 
 function Rating({ShowRating}: Prop) {
-    const rating = Math.floor(ShowRating.rating)
+const color = ShowRating > 70 ? 'green' : ShowRating < 70 &&  ShowRating >= 50 ? 'yellow' : ShowRating < 50 ? 'red' : ''
+
     return(
-    <HStack marginX={0.1} marginY={1}>
-        {
-            stars[rating].map((rating, index) => (
-                <Icon key={index} as={rating}/>
-            ))
-        }
-    </HStack>
-       
+        <Badge
+            paddingRight={3}
+            paddingLeft={3} 
+            paddingTop={1} 
+            paddingBottom={1} 
+          fontSize={14}
+          colorScheme={color}
+          >
+          
+            {ShowRating}
+        </Badge>
     )
 }
 
