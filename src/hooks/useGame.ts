@@ -3,9 +3,19 @@ import apiRequest from "../api-request";
 import { CanceledError } from "axios";
 
 
-interface gameProp {
+
+export interface PlatformIcon {
+    id: number;
+    name: string;
+    slug: string
+}
+
+export interface gameProp {
     id: number ;
     name: string;
+    background_image: string
+    rating: number
+    parent_platforms: {platform: PlatformIcon}[]
   }
   
   interface resultProp {
@@ -16,6 +26,7 @@ interface gameProp {
 
 export const useGame = () => {
     const [ gameList, setGameList] = useState<gameProp[]>([])
+    console.log(gameList)
     const [error, setError] = useState('')
 
 const [loading, setLoading] = useState(true)
