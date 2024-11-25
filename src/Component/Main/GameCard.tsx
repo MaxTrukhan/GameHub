@@ -4,7 +4,8 @@ import { gameProp } from '../../hooks/useGame'
 import Icons from './Icons'
 import Raiting from './Raiting'
 import GetCroppedImgUrl from '../../service/optimizedImgs'
-import { cardSize } from './GameCardSkeleton'
+
+export const cardSize = '400px'
 interface Prop {
     game: gameProp
     
@@ -13,10 +14,7 @@ interface Prop {
 function GameCard({game}: Prop) {
   return (
     <div>
-        <Card _hover={{
-            transition: 'all 0.3s ease-in-out 0.1s',
-            transform: 'scale(1.05)'
-        }} cursor={'pointer'}  w={cardSize} minH={'400px'} overflow={'hidden'}>
+        <Card >
       <Image src={GetCroppedImgUrl(game.background_image)}/>
       <CardBody marginY={3}>
         <Heading fontSize={'2xl'}>{game.name}</Heading>

@@ -3,6 +3,7 @@ import GameCard from './GameCard'
 import { useGame } from '../../hooks/useGame'
 import React from 'react'
 import GameCardScaleton from './GameCardSkeleton'
+import GameCardConteiner from './GameCardConteiner'
 
 
 function GameGrid() {
@@ -12,14 +13,21 @@ const {gameList, error, loading} = useGame()
   return (
     <>
      {error && error}
-    <SimpleGrid borderRadius={10} columns={{sm: 1, md: 2, lg: 3}} spacing={10} m={5}>
+    <SimpleGrid columns={{sm: 1, md: 2, lg: 3}} spacing={10} m={5}>
     {loading && 
       skeletons.map(skeleton => (
-        <GameCardScaleton key={skeleton}/>
+        <GameCardConteiner>
+          <GameCardScaleton key={skeleton}/>
+        </GameCardConteiner>
+        
       ))  
     }
         {gameList.map(game => (
-            <GameCard  key={game.id} game={game}/>
+               
+            <GameCardConteiner>
+              <GameCard  key={game.id} game={game}/>
+            </GameCardConteiner> 
+          
         )
         )}
     </SimpleGrid>
