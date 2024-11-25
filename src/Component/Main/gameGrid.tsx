@@ -13,7 +13,7 @@ const {gameList, error, loading} = useGame()
   return (
     <>
      {error && error}
-    <SimpleGrid columns={{sm: 1, md: 2, lg: 3}} spacing={10} m={5}>
+    <SimpleGrid columns={{sm: 1, md: 2, lg: 3}} spacing={5}>
     {loading && 
       skeletons.map(skeleton => (
         <GameCardConteiner>

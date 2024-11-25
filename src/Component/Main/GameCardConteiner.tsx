@@ -9,7 +9,7 @@ function GameCardConteiner({children}: Prop) {
     <Box _hover={{
         transition: 'all 0.3s ease-in-out 0.1s',
         transform: 'scale(1.05)'
-    }} cursor={'pointer'} borderRadius={10} w={'400px'} minH={'400px'} overflow={'hidden'}>
+    }} cursor={'pointer'}  m={5} borderRadius={10}  w={'400px'} minH={'400px'}  overflow={'hidden'} >
         {children}
     </Box>
   )

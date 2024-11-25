@@ -12,6 +12,7 @@ interface Prop {
 }
 
 function GameCard({game}: Prop) {
+
   return (
     <div>
         <Card >
