@@ -1,13 +1,13 @@
 import React from 'react'
-import useGanres from '../../hooks/useGanres'
+import { genresList, UseData } from '../../hooks/useDate'
 import { ListItem, UnorderedList } from '@chakra-ui/react'
 function GridAside() {
-    const {genresList, error} = useGanres()
+    const {data, error} = UseData<genresList>('/genres')
   return (
     <>
     {error && error}
         <UnorderedList>
-        {genresList.map(ganre => 
+        {data.map(ganre => 
             <ListItem>{ganre.name}</ListItem>
         )}
         </UnorderedList>
