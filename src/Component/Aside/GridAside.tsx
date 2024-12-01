@@ -1,14 +1,16 @@
 import React from 'react'
-import { GenresList, genresList } from '../../hooks/useGanres'
+import { genresList, GenresList } from '../../hooks/useGanres'
 import {Image, HStack, List, ListItem, Spinner, Button } from '@chakra-ui/react'
 
 import GetCroppedImgUrl from '../../service/optimizedImgs'
 
 interface Prop {
-  onSelectGenres: (genre: genresList) => void
+  onSelectGenre: (genre: genresList) => void // we acces our genre to all items in GL as "id ,name, slug" and other
+  selectedGenre: genresList | null
 }
 
-function GridAside({onSelectGenres}: Prop) {
+function GridAside({onSelectGenre, selectedGenre}: Prop) {
+  // Our missin here to import value of genre , we can do this by interface Prop
     const {data, error, loading} = GenresList()
 
     if(loading) {
@@ -33,7 +35,7 @@ function GridAside({onSelectGenres}: Prop) {
           <HStack
           >
             <Image  boxSize={'37px'}  src={GetCroppedImgUrl(genre.image_background)} borderRadius={'10px'}/>
-            <Button onClick={() => onSelectGenres(genre)} variant='link' fontSize='lg' letterSpacing={'1px'}>{genre.name}</Button>
+            <Button fontWeight={selectedGenre?.id === genre.id ? 'bold' : 'ligth'} onClick={() => onSelectGenre(genre)} _focus={{transform: 'scale(1.15)'}} variant='link' fontSize='lg' letterSpacing={'1px'}>{genre.name}</Button>
           </HStack>
         </ListItem> 
       </>

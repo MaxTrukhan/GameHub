@@ -21,7 +21,7 @@ export interface gameProp {
 }
 
   
- export const UseGame = (selectGanre: genresList | null) => UseData<gameProp>('/games', {params: {genres: selectGanre?.id}}, [selectGanre?.id])
+ export const UseGame = (selectedGenre: genresList | null) => UseData<gameProp>('/games', {params: {genres: selectedGenre?.id}}, [selectedGenre?.id])
 
 
 
