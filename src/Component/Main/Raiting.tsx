@@ -7,7 +7,7 @@ interface Prop {
 // Ensure your rating values are mapped correctly (as integers).
 
 function Rating({ShowRating}: Prop) {
-const color = ShowRating > 70 ? 'green' : ShowRating < 70 &&  ShowRating >= 50 ? 'yellow' : ShowRating < 50 ? 'red' : ''
+const color = ShowRating > 70 ? 'green' : ShowRating <= 70 &&  ShowRating >= 50 ? 'yellow' : ShowRating < 50 ? 'red' : ''
 
     return(
         <Badge
