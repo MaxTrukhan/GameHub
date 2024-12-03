@@ -1,6 +1,5 @@
 import { UseData } from "./useDate";
-import { genresList } from "./useGanres";
-import { Platform } from "./usePlatform";
+import { gameQuery } from "../App";
 export interface PlatformIcon {
     id: number;
     name: string;
@@ -22,13 +21,13 @@ export interface gameProp {
 }
 
   
- export const UseGame = (selectedGenre: genresList | null, selectedPlatform: Platform | null) => UseData<gameProp>('/games', {
+ export const UseGame = (gameQuery: gameQuery) => UseData<gameProp>('/games', {
     params: {
-        genres: selectedGenre?.id ,
-        parent_platforms: selectedPlatform?.id
+        genres: gameQuery.genresList?.id ,
+        parent_platforms: gameQuery.Platform?.id
     } 
     
-}, [selectedGenre?.id , selectedPlatform?.id])
+}, [gameQuery])
 
 
 

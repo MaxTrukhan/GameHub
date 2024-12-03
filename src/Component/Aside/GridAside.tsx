@@ -4,8 +4,9 @@ import {Image, HStack, List, ListItem, Spinner, Button } from '@chakra-ui/react'
 
 import GetCroppedImgUrl from '../../service/optimizedImgs'
 
+
 interface Prop {
-  onSelectGenre: (genre: genresList) => void // we acces our genre to all items in GL as "id ,name, slug" and other
+  onSelectGenre: (genre: genresList | null) => void // we acces our genre to all items in GL as "id ,name, slug" and other
   selectedGenre: genresList | null
 }
 

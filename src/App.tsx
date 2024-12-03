@@ -7,12 +7,17 @@ import {genresList } from "./hooks/useGanres"
 import PlatformFilterList from "./Component/FilteringPlatform/PlatformFilterList"
 import { Platform } from "./hooks/usePlatform"
 
+export interface gameQuery {
+  genresList: genresList | null,
+  Platform: Platform | null
+}
+
 function App() {
 
 
 // Crate useState where all our date will be safed
-  const [selectedGenre, setSelectedGenre] = useState<genresList | null>(null) // we add null just begouse we don't know type of genres 'text' or number
-  const [selectedPlatform, setSelectedPlatform] = useState<Platform | null>(null)
+const [gameQuery, setGameQuery] = useState<gameQuery>({} as gameQuery)
+
   return <Grid
    templateAreas={
     {
@@ -33,13 +38,13 @@ function App() {
 
       <Show above="lg">
         <GridItem area="aside">
-          <GridAside selectedGenre={selectedGenre} onSelectGenre={(genre) => setSelectedGenre(genre)}/> {/**we pulled up our genre to father component and now we gonna move it gmaeGrid connection */}
+          <GridAside selectedGenre={gameQuery.genresList} onSelectGenre={(genre) => setGameQuery({...gameQuery, genresList: genre})}/> {/**we pulled up our genre to father component and now we gonna move it gmaeGrid connection */}
         </GridItem>
       </Show>
         
     <GridItem area='main' >
-      <PlatformFilterList onSelectedPlatfrom={(platform) => setSelectedPlatform(platform)} selectedPlatform={selectedPlatform}/>
-      <GameGrid selectedGenre={selectedGenre} selectedPlatform={selectedPlatform}/> {/** At this point we show to gameGrid conection what to show on a page */}
+      <PlatformFilterList onSelectedPlatfrom={(platform) => setGameQuery({...gameQuery , Platform: platform})} selectedPlatform={gameQuery.Platform}/>
+      <GameGrid gameQuery={gameQuery}/> {/** At this point we show to gameGrid conection what to show on a page */}
     </GridItem>
   </Grid>
 }

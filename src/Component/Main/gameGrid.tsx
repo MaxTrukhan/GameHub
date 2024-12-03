@@ -3,19 +3,16 @@ import GameCard from './GameCard'
 import { UseGame } from '../../hooks/useGame'
 import GameCardScaleton from './GameCardSkeleton'
 import GameCardConteiner from './GameCardConteiner'
-import { genresList } from '../../hooks/useGanres'
-import { Platform } from '../../hooks/usePlatform'
+import { gameQuery } from '../../App'
 
 interface Prop {
-  selectedGenre: genresList | null
-  selectedPlatform: Platform | null
+  gameQuery: gameQuery
 }
 
-function GameGrid({selectedGenre, selectedPlatform}: Prop) {
+function GameGrid({gameQuery}: Prop) {
   const skeletons = [1, 2, 3, 4, 5, 6]
-  const {data, error, loading} = UseGame(selectedGenre, selectedPlatform)
+  const {data, error, loading} = UseGame(gameQuery)
 
-console.log(selectedPlatform?.slug)
   
   return (
     <>

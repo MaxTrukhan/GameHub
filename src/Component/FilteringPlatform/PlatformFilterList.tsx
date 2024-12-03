@@ -19,7 +19,7 @@ function PlatformFilterList({onSelectedPlatfrom, selectedPlatform}: Prop) {
   return (
     <Menu>
       <MenuButton as={Button} onClick={() => setClicked(!clicked)} rightIcon={clicked ? <BsChevronUp/> : <BsChevronDown />}>
-      {selectedPlatform === null ? 'Platform' : selectedPlatform?.name }
+      {selectedPlatform?.name || 'Platform'}
       </MenuButton>
       <MenuList>     
           {data.map(platform => 
