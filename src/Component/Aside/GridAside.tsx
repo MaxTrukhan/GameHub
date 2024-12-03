@@ -20,7 +20,7 @@ function GridAside({onSelectGenre, selectedGenre}: Prop) {
   return (
     <>
     {error && error}
-    <List>
+    <List marginTop={10}>
       {data.map(genre => 
       <>
         <ListItem _hover={{
@@ -33,8 +33,7 @@ function GridAside({onSelectGenre, selectedGenre}: Prop) {
         cursor={'pointer'}
         p={3}
         >
-          <HStack
-          >
+          <HStack>
             <Image  boxSize={'37px'}  src={GetCroppedImgUrl(genre.image_background)} borderRadius={'10px'}/>
             <Button fontWeight={selectedGenre?.id === genre.id ? 'bold' : 'ligth'} onClick={() => onSelectGenre(genre)} _focus={{transform: 'scale(1.15)'}} variant='link' fontSize='lg' letterSpacing={'1px'}>{genre.name}</Button>
           </HStack>

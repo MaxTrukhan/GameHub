@@ -13,7 +13,7 @@ function GameGrid({gameQuery}: Prop) {
   const skeletons = [1, 2, 3, 4, 5, 6]
   const {data, error, loading} = UseGame(gameQuery)
 
-  
+
   return (
     <>
      {error && error}
