@@ -4,11 +4,15 @@ import GameGrid from "./Component/Main/gameGrid"
 import GridAside from "./Component/Aside/GridAside"
 import { useState } from "react"
 import {genresList } from "./hooks/useGanres"
-
+import PlatformFilterList from "./Component/FilteringPlatform/PlatformFilterList"
+import { Platform } from "./hooks/usePlatform"
 
 function App() {
+
+
 // Crate useState where all our date will be safed
   const [selectedGenre, setSelectedGenre] = useState<genresList | null>(null) // we add null just begouse we don't know type of genres 'text' or number
+  const [selectedPlatform, setSelectedPlatform] = useState<Platform | null>(null)
   return <Grid
    templateAreas={
     {
@@ -34,7 +38,8 @@ function App() {
       </Show>
         
     <GridItem area='main' >
-      <GameGrid selectedGenre={selectedGenre}/> {/** At this point we show to gameGrid conection what to show on a page */}
+      <PlatformFilterList onSelectedPlatfrom={(platform) => setSelectedPlatform(platform)} selectedPlatform={selectedPlatform}/>
+      <GameGrid selectedGenre={selectedGenre} selectedPlatform={selectedPlatform}/> {/** At this point we show to gameGrid conection what to show on a page */}
     </GridItem>
   </Grid>
 }
