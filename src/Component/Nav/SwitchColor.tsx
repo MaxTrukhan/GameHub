@@ -6,7 +6,7 @@ function SwitchColor() {
     <div>
         <HStack>
         <Switch colorScheme="green" isChecked={colorMode === 'dark'} onChange={toggleColorMode} id='switch'/>
-        <Text>Dark Mode</Text>
+        <Text whiteSpace={"nowrap"}>Dark Mode</Text>
         </HStack>
     
     </div>

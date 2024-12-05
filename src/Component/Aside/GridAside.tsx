@@ -1,4 +1,3 @@
-import React from 'react'
 import { genresList, GenresList } from '../../hooks/useGanres'
 import {Image, HStack, List, ListItem, Spinner, Button } from '@chakra-ui/react'
 
@@ -23,7 +22,7 @@ function GridAside({onSelectGenre, selectedGenre}: Prop) {
     <List marginTop={10}>
       {data.map(genre => 
       <>
-        <ListItem _hover={{
+        <ListItem key={genre.id} _hover={{
           transform: 'scale(1.05)',
           transition: 'all 0.3s ease-in-out 0s',
           boxShadow: '1px 1px 3px rgba(0, 0, 0, 0.16)',
