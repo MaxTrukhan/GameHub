@@ -7,6 +7,7 @@ import {genresList } from "./hooks/useGanres"
 import PlatformFilterList from "./Component/FilteringPlatform/PlatformFilterList"
 import { Platform } from "./hooks/usePlatform"
 import SortSelector from "./Component/Sort/SortSelector"
+import Header from "./Component/Header/Header"
 
 
 export interface gameQuery {
@@ -46,12 +47,16 @@ const [gameQuery, setGameQuery] = useState<gameQuery>({} as gameQuery)
       </Show>
         
     <GridItem area='main' >
-      <Flex marginLeft={5}>
-        <Box marginRight={5}>
-           <PlatformFilterList onSelectedPlatfrom={(platform) => setGameQuery({...gameQuery , Platform: platform})} selectedPlatform={gameQuery.Platform}/>
-        </Box>
-        <SortSelector selectore={gameQuery.selectore} onSelectSelector={(selectore) => setGameQuery({...gameQuery, selectore: selectore})}/>
-      </Flex> 
+      <Box paddingLeft={7}>
+        <Header gameQuery={gameQuery}/>
+        <Flex >
+          <Box marginRight={5}>
+            <PlatformFilterList onSelectedPlatfrom={(platform) => setGameQuery({...gameQuery , Platform: platform})} selectedPlatform={gameQuery.Platform}/>
+          </Box>
+          <SortSelector selectore={gameQuery.selectore} onSelectSelector={(selectore) => setGameQuery({...gameQuery, selectore: selectore})}/>
+        </Flex> 
+      </Box>
+      
       
 
       <GameGrid  gameQuery={gameQuery}/> {/** At this point we show to gameGrid conection what to show on a page */}
