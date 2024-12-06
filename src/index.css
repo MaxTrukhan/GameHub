@@ -2,3 +2,6 @@ body{
   background-color: rgb(31, 31, 31);
   display: inline;
 }
+form{
+  width: 100%;
+}

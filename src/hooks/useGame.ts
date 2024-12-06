@@ -26,7 +26,8 @@ export interface gameProp {
     params: {
         genres: gameQuery.genresList?.id ,
         parent_platforms: gameQuery.Platform?.id, 
-        ordering: gameQuery.selectore     
+        ordering: gameQuery.selectore ,  
+        search: gameQuery.searchText
     } 
 }, [gameQuery])
 

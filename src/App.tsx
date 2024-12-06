@@ -13,6 +13,7 @@ export interface gameQuery {
   genresList: genresList | null,
   Platform: Platform | null
   selectore: string
+  searchText: string
 }
 
 function App() {
@@ -30,12 +31,12 @@ const [gameQuery, setGameQuery] = useState<gameQuery>({} as gameQuery)
   templateColumns={
     {
       base: `1fr`,
-      lf: `"200px" "1rf"`
+      lg: `"200px" "1rf"`
     }
   }
   overflowX={'hidden'}>
     <GridItem  area='nav'>
-     <NavBar/>
+     <NavBar onSearch={(onSearch) => setGameQuery({...gameQuery, searchText: onSearch})}/>
     </GridItem>
 
       <Show above="lg">
