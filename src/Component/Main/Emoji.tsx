@@ -14,14 +14,14 @@ function Emoji({game}: Prop) {
     if(game.rating_top < 3) return ''
 
     const EmojiMap: {[key: number]: ImageProps} =  {
-        3: {src: mehImg, alt: 'meh'},
-        4: {src: thumbImg, alt: 'thumb'},
-        5: {src: bullsEye, alt: 'bullish Eye'}
+        3: {src: mehImg, alt: 'meh', boxSize: '25px'},
+        4: {src: thumbImg, alt: 'thumb', boxSize: '25px'},
+        5: {src: bullsEye, alt: 'bullish Eye', boxSize: '35px'}
     }
 
   return (
     <>
-      <Image boxSize={7} m={1} {...EmojiMap[game.rating_top]}/>
+      <Image  m={1} {...EmojiMap[game.rating_top]}/>
     </>
   )
 }
