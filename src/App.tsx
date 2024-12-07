@@ -10,6 +10,7 @@ import SortSelector from "./Component/Sort/SortSelector"
 import Header from "./Component/Header/Header"
 
 
+
 export interface gameQuery {
   genresList: genresList | null,
   Platform: Platform | null

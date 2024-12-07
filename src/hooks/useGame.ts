@@ -5,10 +5,6 @@ export interface PlatformIcon {
     name: string;
     slug: string
 }
-export interface Genres {
-    name: string
-    slug: string
-}
 export interface gameProp {
     id: number ;
     name: string;
@@ -16,8 +12,7 @@ export interface gameProp {
     rating: number;
     metacritic: number;
     parent_platforms: {platform: PlatformIcon}[];
-    genres: Genres
-
+    rating_top: number;
 }
 
    

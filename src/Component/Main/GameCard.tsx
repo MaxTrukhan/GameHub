@@ -5,14 +5,16 @@ import Icons from './Platforms'
 import Raiting from './Raiting'
 import GetCroppedImgUrl from '../../service/optimizedImgs'
 
+import Emoji from './Emoji'
 
 export const cardSize = '400px'
 interface Prop {
     game: gameProp
 }
 
-
+ 
 function GameCard({game}: Prop) {
+
   return (
     <div>
         <Card >
@@ -23,6 +25,7 @@ function GameCard({game}: Prop) {
             <Raiting ShowRating={game.metacritic}/>
         </HStack>
         <Heading fontSize={'2xl'}>{game.name}</Heading>
+        <Emoji game={game} />
       </CardBody>
     </Card>
     </div>
