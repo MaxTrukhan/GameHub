@@ -17,13 +17,12 @@ function GameCard({game}: Prop) {
     <div>
         <Card >
       <Image src={GetCroppedImgUrl(game.background_image)}/>
-      <CardBody marginY={3}>
-        <Heading fontSize={'2xl'}>{game.name}</Heading>
-        <HStack m={1} w={'100%'} justifyContent={'space-between'}>
+      <CardBody p={3} marginY={3}>  
+        <HStack mb={3} w={'100%'} justifyContent={'space-between'}>
             <Icons platform={game.parent_platforms.map(p => p.platform)}/>
             <Raiting ShowRating={game.metacritic}/>
         </HStack>
-        
+        <Heading fontSize={'2xl'}>{game.name}</Heading>
       </CardBody>
     </Card>
     </div>
