@@ -31,8 +31,8 @@ const [gameQuery, setGameQuery] = useState<gameQuery>({} as gameQuery)
   } 
   templateColumns={
     {
-      base: `1fr`,
-      lg: `"200px" "1rf"`
+      base: '1fr',
+      lg: '250px 1fr'
     }
   }
   overflowX={'hidden'}>
@@ -42,7 +42,10 @@ const [gameQuery, setGameQuery] = useState<gameQuery>({} as gameQuery)
 
       <Show above="lg">
         <GridItem area="aside">
-          <GridAside selectedGenre={gameQuery.genresList} onSelectGenre={(genre) => setGameQuery({...gameQuery, genresList: genre})}/> {/**we pulled up our genre to father component and now we gonna move it gmaeGrid connection */}
+          <Box ml={3} marginTop={7}>
+           <GridAside  selectedGenre={gameQuery.genresList} onSelectGenre={(genre) => setGameQuery({...gameQuery, genresList: genre})}/> {/**we pulled up our genre to father component and now we gonna move it gmaeGrid connection */}
+          </Box>
+        
         </GridItem>
       </Show>
         
