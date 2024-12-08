@@ -13,10 +13,10 @@ function GameGrid({gameQuery}: Prop) {
   const skeletons = [1, 2, 3, 4, 5, 6]
   const {data, error, loading} = UseGame(gameQuery)
 
+if(error) return error
 
   return (
-    <>
-     {error && error}
+    
     <SimpleGrid m={7} columns={{sm: 1, md: 2, lg: 3}} spacing={4}>
     {loading && 
       skeletons.map(skeleton => (
@@ -33,7 +33,6 @@ function GameGrid({gameQuery}: Prop) {
         )
         )}
     </SimpleGrid>
-    </>
   )
 }
 
