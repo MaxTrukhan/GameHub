@@ -18,7 +18,7 @@ function GameCard({game}: Prop) {
   return (
     <div>
         <Card >
-      <Image src={GetCroppedImgUrl(game.background_image)}/>
+      <Image  src={GetCroppedImgUrl(game.background_image)}/>
       <CardBody p={3} marginY={3}>  
         <HStack mb={3} w={'100%'} justifyContent={'space-between'}>
             <Icons platform={game.parent_platforms.map(p => p.platform)}/>
