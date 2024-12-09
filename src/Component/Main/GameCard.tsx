@@ -1,4 +1,3 @@
-import React from 'react'
 import { Card, CardBody, Heading, HStack, Image } from '@chakra-ui/react'
 import { gameProp } from '../../hooks/useGame'
 import Icons from './Platforms'
@@ -12,7 +11,6 @@ interface Prop {
     game: gameProp
 }
 
- 
 function GameCard({game}: Prop) {
 
   return (

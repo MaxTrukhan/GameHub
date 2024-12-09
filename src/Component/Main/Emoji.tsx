@@ -1,4 +1,3 @@
-import React from 'react'
 import { Image, ImageProps } from '@chakra-ui/react'
 import thumbImg from '../../assets/thumbs-up.webp'
 import mehImg from '../../assets/meh.webp'
